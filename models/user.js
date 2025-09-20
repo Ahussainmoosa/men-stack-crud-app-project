@@ -10,7 +10,10 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 });
-
+// user.js
+const foodSchema = new mongoose.Schema({
+  //creat and Define properties of food schema similer to above.
+});
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
