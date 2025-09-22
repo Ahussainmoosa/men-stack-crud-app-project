@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Add New Car</title>
+    <title>Add New Food</title>
 </head>
 <body>
-  <h1>Add a New Car</h1>
-  <form action="/cars" method="POST" enctype="multipart/form-data">
+  <h1>Add a New Food</h1>
+  <form action="/users/<%= userId %>/foods" method="POST" enctype="multipart/form-data">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
         <label for="description">Description:</label>
         <input type="text" name="description" id="description" required>
-        <div class="checkbox-div">
-          <label for="isReadyToEat">Ready to Drive?</label>
-          <input type="checkbox" name="isReadyToEat">
-        </div>
-        <label for="image">Car Image:</label>
+        <label for="image">Food Image:</label>
         <input type="file" name="image" id="image">
-        <button type="submit">Add Car</button>
+        <button type="submit">Add Food</button>
   </form>
-  <a href="/cars">Back to Cars</a>
+  <a href="/users/<%= userId %>/foods">Back to Foods</a>
 </body>
 </html>

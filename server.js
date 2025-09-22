@@ -54,15 +54,12 @@ app.use('/auth', authController);
 
 // PRIVATE
 app.use(isSignedIn);
+app.use('/foods', foodsController);
 app.use('/users/:userId/foods', foodsController);
+app.use('/uploads', express.static('uploads'));
 
 
 // PROTECTED
-
-app.get("/vip-lounge", isSignedIn, (req, res) => {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-});
-
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });

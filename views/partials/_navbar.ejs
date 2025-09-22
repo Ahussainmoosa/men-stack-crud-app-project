@@ -9,9 +9,9 @@
     <nav>
         <a href="/">Home</a>
         <% if(user) { %>
-        <a href="/users/<%=user._id%>/foods">View my Pantry</a>
+        <a href="/users/<%=user._id%>/foods">View my menu</a>
         <a href="/auth/sign-out">Sign Out</a>
-        <a href="/foods/new"> Creat anew resiapy</a>
+        <a class="add-foods" href="/foods/new">creat a new resiapy</a>
 
         <% } else { %>
         <a href="/auth/sign-in">Sign In</a>
