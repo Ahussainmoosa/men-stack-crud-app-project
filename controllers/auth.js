@@ -25,14 +25,22 @@ router.post('/sign-up', async (req, res) => {
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
   req.body.password = hashedPassword;
 
-  const newUser = await User.create(req.body);
+  const newUser = await User.create({
+    username: req.body.username,
+    password:hashedPassword,
+    email: req.body.email,
+    role:'user',//adding the defult value of the role.
 
+  });
+  
   req.session.user = {
     username: newUser.username,
-    _id: newUser._id
+    _id: newUser._id,
+    role:'user',
   };
 
   req.session.save(() => {
+
     res.redirect("/");
   });
 });
@@ -53,6 +61,7 @@ router.post('/sign-in', async (req, res) => {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
+    role:userInDatabase.role, //to stor the role value in the database.
   };
 
   req.session.save(() => {

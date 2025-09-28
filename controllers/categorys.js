@@ -15,7 +15,7 @@ router.get('/',async(req,res)=>{
 
 router.get("/:categoryId", async(req, res) => {
   const category = await Category.findById(req.params.categoryId);
-  res.render("product/show.ejs");
+  res.render("products/show.ejs");
 });
 
 router.post("/", upload.single('image'), async (req, res) => {

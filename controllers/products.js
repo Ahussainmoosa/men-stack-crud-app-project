@@ -14,18 +14,18 @@ router.get('/',async(req,res)=>{
 });
 //list of product
 router.get("/product", async (req, res) => {
-    res.render("foods/index.ejs");
+    res.render("products/index.ejs");
     console.log("route done!!!!!!");
 });
 //list single product
 router.get("/:productId", async(req, res) => {
   const product = await Product.findById(req.params.productId);
-  res.render("product/show.ejs");
+  res.render("products/show.ejs");
 });
 
 //to add a new product
 router.get("/new", (req, res) => {
-  res.render("product/new.ejs");
+  res.render("products/new.ejs");
 });
 
 router.delete('/product/:productId', async (req, res) => {

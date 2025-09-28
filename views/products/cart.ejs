@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= products.name %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="products-details">
+      <h1><%= products.name %></h1>
+      <p>Description: <%= products.description %></p>
+      <% if (products.image) { %>
+        <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="products-pic1">
+      <% } %>
+      <div class="products-actions">
+        <form
+          class="delete-form"
+          action="/users/<%= userId %>/products/<%= products._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button class="delete-button" type="submit">
+            Delete <%= products.name %>
+          </button>
+        </form>
+        <a class="edit-link" href="/users/<%= userId %>/products/<%= products._id %>/edit">
+          <div class="edit-text">Edit <%= products.name %></div>
+        </a>
+      </div>
+      <a href="/users/<%= userId %>/products">View my menu</a>  
+    </div> 
+  </body>
+</html>

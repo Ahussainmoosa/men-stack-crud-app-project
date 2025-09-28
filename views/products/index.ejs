@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Dar Aref shop</title>
+  </head>
+  <body>
+    <div class="index-header-div">
+      <h1>All product</h1> 
+      <a class="add-product" href="/users/<%= userId %>/product/new">Add product/a>
+    </div>
+
+    <ul>
+      <% products.forEach((product) => { %>
+        <li>
+          <a class="product" href="/users/<%= userId %>/product/<%= product._id %>">
+            <%= product.name %> - <%= productdescription %>
+            <% if (product.image) { %>
+              <br>
+              <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-pic1">
+            <% } %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

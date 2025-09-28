@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Add New Food</title>
+    <title>Add New product</title>
 </head>
 <body>
-  <h1>Add a New Food</h1>
-  <form action="/users/<%= userId %>/foods" method="POST" enctype="multipart/form-data">
+  <h1>Add a New product</h1>
+  <form action="/users/<%= userId %>/products" method="POST" enctype="multipart/form-data">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
         <label for="description">Description:</label>
         <input type="text" name="description" id="description" required>
-        <label for="image">Food Image:</label>
+        <label for="image">product Image:</label>
         <input type="file" name="image" id="image">
-        <button type="submit">Add Food</button>
+        <button type="submit">Add product</button>
   </form>
-  <a href="/users/<%= userId %>/foods">Back to Foods</a>
+  <a href="/users/<%= userId %>/products">Back to products</a>
 </body>
 </html>

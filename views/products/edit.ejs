@@ -7,20 +7,20 @@
     <title>Edit </title>
 </head>
 <body>
-  <h1>Edit recipe  <%= foods.name %></h1>
-  <form action="/users/<%= userId %>/foods/<%=foods._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <h1>Edit recipe  <%= products.name %></h1>
+  <form action="/users/<%= userId %>/products/<%=products._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
         <label for="name">Name of Dish :</label>
-        <input type="text" name="name" id="name" value="<%= foods.name %>"/>
+        <input type="text" name="name" id="name" value="<%= products.name %>"/>
         <label for="description">Description of Dish :</label>
-        <input type="text" name="description" id="description" value="<%= foods ? foods.description : '' %>">
+        <input type="text" name="description" id="description" value="<%= products ? products.description : '' %>">
         <label for="image">Dish Image:</label>
         <input type="file" name="image" id="image">
         <button type="submit">Update Dish</button>
   </form>
   <h3>Image:</h3>
-  <% if (foods.image) { %>
-    <img src="/uploads/<%= foods.image %>" alt="<%= foods.name %>" class="food-pic1">
+  <% if (products.image) { %>
+    <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
   <% } %>
-  <a href="/users/<%= userId %>/foods">Back to Dishes list</a>
+  <a href="/users/<%= userId %>/products">Back to Dishes list</a>
 </body>
 </html>
