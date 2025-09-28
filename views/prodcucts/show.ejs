@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= foods.name %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="foods-details">
+      <h1><%= foods.name %></h1>
+      <p>Description: <%= foods.description %></p>
+      <% if (foods.image) { %>
+        <img src="/uploads/<%= foods.image %>" alt="<%= foods.name %>" class="foods-pic1">
+      <% } %>
+      <div class="foods-actions">
+        <form
+          class="delete-form"
+          action="/users/<%= userId %>/foods/<%= foods._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button class="delete-button" type="submit">
+            Delete <%= foods.name %>
+          </button>
+        </form>
+        <a class="edit-link" href="/users/<%= userId %>/foods/<%= foods._id %>/edit">
+          <div class="edit-text">Edit <%= foods.name %></div>
+        </a>
+      </div>
+      <a href="/users/<%= userId %>/foods">View my menu</a>  
+    </div> 
+  </body>
+</html>

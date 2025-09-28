@@ -15,7 +15,10 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 
 // Controllers
 const authController = require('./controllers/auth.js');
-const foodsController = require('./controllers/foods.js');
+const cartController = require('./controllers/carts.js');
+const categoryController = require('./controllers/categorys.js');
+const productsController = require('./controllers/products.js');
+
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : '3000';
@@ -54,8 +57,13 @@ app.use('/auth', authController);
 
 // PRIVATE
 app.use(isSignedIn);
-app.use('/foods', foodsController);
-app.use('/users/:userId/foods', foodsController);
+//app.use('/shope', shopeController);
+app.use('/categorys', categoryController);
+app.use('/carts', cartController);
+app.use('/products', productsController);
+
+
+//app.use('/users/:userId/foods', foodsController);
 app.use('/uploads', express.static('uploads'));
 
 
