@@ -9,14 +9,13 @@
   <body>
     <div class="index-header-div">
       <h1>All product</h1> 
-      <a class="add-product" href="/users/<%= userId %>/product/new">Add product/a>
     </div>
 
     <ul>
       <% products.forEach((product) => { %>
         <li>
-          <a class="product" href="/users/<%= userId %>/product/<%= product._id %>">
-            <%= product.name %> - <%= productdescription %>
+          <a class="product" href="/product/<%= product._id %>">
+            <%= product.name %> - <%= product.description %>
             <% if (product.image) { %>
               <br>
               <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-pic1">

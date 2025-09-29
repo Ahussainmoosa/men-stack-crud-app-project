@@ -8,10 +8,17 @@
 <body>
     <nav>
         <a href="/">Home</a>
-        <% if(user) { %>
+        <% if(user && user.role=='admin') { %>
         <a href="/users/<%=user._id%>/product">View my menu</a>
         <a href="/auth/sign-out">Sign Out</a>
         <a class="add-foods" href="/product/new">creat a new resiapy</a>
+        <a class="vistShop"href="/product/index.ejs">Vist the shop</a>
+        <a class="username" id="username"> Hello <%= user.username %></a>
+
+        <% } else if (user && user.role=='user') { %>
+        <a href="/auth/sign-out">Sign Out</a>
+        <a class="vistShop" href="/product">Vist the shop</a>
+        <a class="username" id="username"> Hello <%= user.username %></a>
 
         <% } else { %>
         <a href="/auth/sign-in">Sign In</a>

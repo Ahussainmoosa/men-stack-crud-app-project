@@ -7,51 +7,52 @@ const upload = multer({ dest: 'uploads/' })// for import the photo from uplods
 //to get all product
 router.get('/',async(req,res)=>{
     try {
-        res.render('products/index.ejs');
+      const products =await Product.find();
+        res.render('product/index.ejs',{products});
     } catch (error) {
-        res.send('error!');
+        res.send('error with loading the product!');
     }
-});
-//list of product
-router.get("/product", async (req, res) => {
-    res.render("products/index.ejs");
-    console.log("route done!!!!!!");
-});
-//list single product
-router.get("/:productId", async(req, res) => {
-  const product = await Product.findById(req.params.productId);
-  res.render("products/show.ejs");
 });
 
 //to add a new product
 router.get("/new", (req, res) => {
-  res.render("products/new.ejs");
-});
-
-router.delete('/product/:productId', async (req, res) => {
-  await Product.findByIdAndDelete(req.params.productId);
-  res.redirect(`/users/${req.params.productId}/product`);
+  console.log ('routes new done');
+  res.render("product/new.ejs");
 });
 
 router.post("/", upload.single('image'), async (req, res) => {
     try {
         const newProduct= new Product({
-            name:req.body.name,
-            type: req.body.type,
+            name: req.body.name,
             categoryId: req.body.categoryId,
             description:req.body.description,
             image: req.file ? req.file.filename : null,
             price:req.body.price,
-            user: req.params.userId,
+            user: req.session.user ? req.session.user._id : null,
         });
         await newProduct.save();//saveing the new food
-        res.redirect(`products/products`);
+        res.redirect('/product');
     } catch (error) {
-        res.send('error found with adding a new products!!')
+        res.send(error);
     }
 });
+
+//list single product
+router.get("/:productId", async(req, res) => {
+  const products = await Product.findById(req.params.productId);
+  res.render("product/show.ejs",{products});
+});
+
+
+
+router.delete('/:productId', async (req, res) => {
+  await Product.findByIdAndDelete(req.params.productId);
+  res.redirect(`/users/${req.params.productId}/product`);
+});
+
+
 //to update 
-router.put('/product/:productId', upload.single('image'), async (req, res) => {
+router.put('/:productId', upload.single('image'), async (req, res) => {
   try {
     const updateProduct ={
         name:req.body.name,
