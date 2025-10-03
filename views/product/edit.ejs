@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Edit </title>
+    <title>Edit <%= products.name %></title>
 </head>
 <body>
-  <h1>Edit product  <%= products.name %></h1>
-  <form action="/product/<%=products._id%>/?_method=PUT" method="POST" enctype="multipart/form-data">
-        <label for="name">Name of Dish :</label>
-        <input type="text" name="name" id="name" value="<%= products.name %>"/>
-        <label for="description">Description of Dish :</label>
-        <input type="text" name="description" id="description" value="<%= products ? products.description : '' %>">
-        <label for="image">Dish Image:</label>
-        <input type="file" name="image" id="image">
-        <button type="submit">Update Dish</button>
-  </form>
-  <h3>Image:</h3>
+  <div class="edit-product-container">
     <% if (products.image) { %>
-      <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
+      <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="edit-product-image">
     <% } %>
-  <a href="/product">Back to products list</a>
+
+    <div class="edit-product-form">
+      <h1>Edit Product: <%= products.name %></h1>
+
+      <form action="/product/<%= products._id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
+        <label for="name">Name of Dish:</label>
+        <input type="text" name="name" id="name" value="<%= products.name %>" required />
+
+        <label for="description">Description of Dish:</label>
+        <input type="text" name="description" id="description" value="<%= products ? products.description : '' %>" required />
+
+        <label for="image">Dish Image:</label>
+        <input type="file" name="image" id="image" />
+
+        <button type="submit">Update Dish</button>
+      </form>
+
+      <a href="/product">Back to products list</a>
+    </div>
+  </div>
 </body>
 </html>
