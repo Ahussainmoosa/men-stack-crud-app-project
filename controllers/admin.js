@@ -10,4 +10,14 @@ router.get("/orders",isSignedIn, isAdmin, async (req, res) => {
   res.render("product/order-list", { orders });
 });
 
+router.delete('/orders/:id', async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id);
+    res.redirect('/admin/orders');
+  } catch (err) {
+    console.error(err);
+    res.send('Error deleting order');
+  }
+});
+
 module.exports = router;

@@ -23,15 +23,22 @@
         <ul>
           <% order.items.forEach(item => { %>
             <li class="order-item">
-              <% if(item.product.image) { %>
+              <% if(item.product) { %>
                 <img src="/uploads/<%= item.product.image %>" alt="<%= item.product.name %>" class="order-item-image">
+                <span><%= item.product.name %> x <%= item.quantity %> = <%= item.price * item.quantity %> BHD</span>
               <% } %>
-              <span><%= item.product.name %> x <%= item.quantity %> = <%= item.price * item.quantity %> BHD</span>
             </li>
           <% }) %>
         </ul>
+
+        <% if(user && user.role === 'admin') { %>
+          <form action="/admin/orders/<%= order._id %>?_method=DELETE" method="POST" class="order-card-actions">
+            <button type="submit" class="delete-btn">Delete Order</button>
+          </form>
+        <% } %>
       </div>
     <% }) %>
+
   <% } else { %>
     <p>No orders yet.</p>
   <% } %>
