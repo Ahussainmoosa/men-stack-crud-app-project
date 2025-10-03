@@ -7,21 +7,34 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
+    <nav>
+      <%- include('../partials/_navbar.ejs') %>
+    </nav>
+    <div class="sign-up">
+      <h1 data-ar="إنشاء حساب جديد" data-en="Create a new account!" ></h1>
+      <form action="/auth/sign-up" method="POST">
+        <div class="input-feild">
+          <label for="username" data-ar=" :الاسم" data-en="Username:">Username:</label>
+          <input type="text" name="username" id="username" />
+        </div>
 
-      <label for ="email">email:</label>
-      <input type="email" name="email" id="email">
+        <div class="input-feild">
+          <label for ="email" data-ar="الايميل: " data-en="email:"></label>
+          <input type="email" name="email" id="email">
+        </div>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
+        <div class="input-feild">
+        <label for="password" data-ar=":الرمز السري" data-en="Password:"></label>
+        <input type="password" name="password" id="password" />
+        </div>
 
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
+        <div class="input-feild">
+          <label for="confirm-Password" data-ar="تأكيد الرمز السري" data-en="Confirm Password:"></label>
+          <input type="password" name="confirmPassword" id="confirmPassword" />
+        </div>
 
-      <button type="submit">Sign up</button>
-    </form>
+        <button type="submit" data-ar="إنشاء حساب جديد" data-en="Sign up"></button>
+      </form>
+    </div>
   </body>
 </html>

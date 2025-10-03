@@ -7,32 +7,33 @@
     <title>Dar Aref Shop</title>
   </head>
   <body>
+  <nav>
+    <%- include('../partials/_navbar.ejs') %>
+  </nav>
 
-    <!-- NAVBAR -->
-    <nav>
-      <%- include('../partials/_navbar.ejs') %>
-    </nav>
+  <h1 class="shop-title">All Products</h1>
+  <div class="product-grid">
+    <% products.forEach((product) => { %>
+      <div class="product-card">
+        <a href="/product/<%= product._id %>" class="product-card-link">
+          <h2 class="product-name"><%= product.name %></h2>
 
-    <h1>All Products</h1>
+          <% if (product.image) { %>
+            <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-image">
+          <% } %>
 
-    <ul>
-      <% products.forEach((product) => { %>
-        <li>
-          <a class="product" href="/product/<%= product._id %>">
-            <%= product.name %> - <%= product.description %>
-            <h3 ><%= product.price %> BHD</h3>
-            <% if (product.image) { %>
-              <br>
-              <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-pic1">
-            <% } %>
-          </a>
+          <p class="product-description"><%= product.description %></p>
+          <h3 class="product-price"><%= product.price %> BHD</h3>
+        </a>
 
-          <form class="add-to-cart-form" action="/cart/<%= product._id %>" method="POST">
-            <button class="add-to-cart" type="submit">Add to Cart</button>
-          </form>
-        </li>
-      <% }) %>
-    </ul>
+        <form class="add-to-cart-form" action="/cart/<%= product._id %>" method="POST">
+          <button class="add-to-cart" type="submit">Add to Cart</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
 
-  </body>
+
+</body>
+
 </html>

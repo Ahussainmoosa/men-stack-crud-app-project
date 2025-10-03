@@ -20,3 +20,249 @@
   font-size: 1.2rem;
   color: #555;
 }
+
+/*the nav style */
+.nav1 {
+  display: flex;
+  justify-content: space-between; /* space between logo/links and toggle button */
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fdfcf9; /* soft off-white background */
+  border-bottom: 2px solid #c0c0c0; /* subtle silver line */
+  font-family: 'Cairo', sans-serif;
+}
+
+.nav1 a {
+  margin: 0 10px;
+  color: #b91c1c; /* deep Arabic red */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav1 a:hover {
+  color: #c61c1c; /* slightly darker red on hover */
+}
+
+.nav1 button#lang-toggle {
+  background-color: #b91c1c; /* deep red */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav1 button#lang-toggle:hover {
+  background-color: #c61c1c; /* darker red on hover */
+}
+
+@media (max-width: 768px) {
+  .nav1 {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+  
+  .nav1 a {
+    margin: 0 5px;
+  }
+}
+
+/*signup */
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0px;
+}
+
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-height: 300px;
+  width: 100%;
+  padding: 30px;
+  background-color: #fdfcf9;
+  border: 2px solid #c0c0c0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Cairo', sans-serif;
+  color: #b91c1c ;
+}
+
+.sign-up h1{
+  text-align: center;
+  font-size: 3rem;
+  color: #b91c1c;
+  margin-bottom: 25px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.sign-up form .input-feild{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 15px;
+}
+.sign-up form .input-feild label{
+  font-weight: 600;
+  margin-left: 10px;
+  display: inline;
+
+}
+.sign-up form .input-feild input{
+  flex: 1;
+  padding: 5px 7px;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.sign-up button{
+  min-height: 40px;
+  color: #b91c1c;
+  font-size: 1rem;
+}
+
+
+/*signin */
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0px;
+}
+
+.sign-in form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-height: 300px;
+  width: 100%;
+  padding: 30px;
+  background-color: #fdfcf9;
+  border: 2px solid #c0c0c0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Cairo', sans-serif;
+  color: #b91c1c ;
+  justify-content: center;
+}
+
+.sign-in h1{
+  text-align: center;
+  font-size: 3rem;
+  color: #b91c1c;
+  margin-bottom: 25px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.sign-in form .input-feild{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 15px;
+}
+.sign-in form .input-feild label{
+  font-weight: 600;
+  margin-left: 10px;
+  display: inline;
+
+}
+.sign-in form .input-feild input{
+  flex: 1;
+  padding: 5px 7px;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.sign-in button{
+  min-height: 40px;
+  color: #b91c1c;
+  font-size: 1rem;
+}
+
+/* index.ejs products*/
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 300px;
+  background-color: #fdfcf9;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #b91c1c;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 15px;
+  min-height: 50px;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b91c1c;
+  margin-bottom: 15px;
+}
+
+.add-to-cart-form button {
+  padding: 10px;
+  background-color: #b91c1c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-form button:hover {
+  background-color: #991b1b;
+}
+
+.shop-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #b91c1c; 
+  margin-bottom: 30px;
+  font-family: 'Cairo', sans-serif;
+}

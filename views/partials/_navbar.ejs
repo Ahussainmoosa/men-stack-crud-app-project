@@ -6,15 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <nav class="navbar">
-        <a href="/">الرئيسية</a>
-        <a href="/product">المتجر</a>
-        <a href="/cart">السلة</a>
-        <!-- langue change boutton-->
-        <button id="lang-toggle">English</button>
-        </nav>
-
+    <nav class="nav1">
         <% if(user && user.role=='admin') { %>
         <a href="/">Home</a>
         <a class="add-product" href="/product/new">creat a new product</a>
@@ -29,12 +21,15 @@
         <a href="/cart">Cart</a>
 
         <% } else { %>
-        <a href="/product">Visit the shop</a>
-        <a href="/auth/sign-in">Sign In</a>
-        <a href="/auth/sign-up">Sign Up</a>
-        <a href="/cart">Cart</a>
+        
+        <a href="/" data-ar="الرئيسية" data-en="Home"></a>
+        <a href="/product" data-ar="المتجر" data-en="Vist Shop"></a>
+        <a href="/cart" data-ar="السلة" data-en="Cart"></a>
+        <a href="/auth/sign-in" data-ar="لتسجيل دخول" data-en="sign-in"></a>
+        <a href="/auth/sign-up" data-ar="تسجيل حساب" data-en="Sign-up"></a>
+        <!-- langue change boutton-->
+        <button id="lang-toggle">English</button>
         <% } %>
-    </nav>
     <br>
     <% if(user) { %>
       <a class="username" id="username"> Hello <%= user.username %></a>
@@ -59,6 +54,7 @@
             });
             }
         });
-    </script>    
+    </script>
+    </nav>    
 </body>
 </html>

@@ -7,15 +7,24 @@
     <title>Sign In</title>
   </head>
   <body>
-    <h1>Sign In!</h1>
-    <form action="/auth/sign-in" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
+    <nav>
+      <%- include('../partials/_navbar.ejs') %>
+    </nav>
+    <div class="sign-in">
+      <h1 data-ar="!تسجيل دخول" data-en="Sign In!"></h1>
+      <form action="/auth/sign-in" method="POST">
+        <div class="input-feild">
+          <label for="username" data-ar=":الاسم" data-en="Username:"></label>
+          <input type="text" name="username" id="username" />
+        </div>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
+        <div class="input-feild">
+          <label for="password" data-ar=":الرمز السري" data-en="Password:"></label>
+          <input type="password" name="password" id="password" />
+        </div>
 
-      <button type="submit">Sign in</button>
-    </form>
+        <button type="submit" data-ar="تسجيل دخول" data-en="Sign in"></button>
+      </form>
+    </div>
   </body>
 </html>
