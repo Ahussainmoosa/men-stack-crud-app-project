@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Checkout</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h1>Checkout</h1>
+
+  <% if (cartItems.length > 0) { %>
+    <ul>
+      <% cartItems.forEach(item => { %>
+        <li>
+          <img src="/uploads/<%= item.product.image %>" alt="<%= item.product.name %>" class="product-pic1">
+          <h3><%= item.product.name %></h3>
+          <p>Price: <%= item.product.price %> BHD</p>
+          <p>Quantity: <%= item.quantity %></p>
+          <p>Subtotal: <%= item.product.price * item.quantity %> BHD</p>
+        </li>
+      <% }) %>
+    </ul>
+
+    <h2>Total: <%= totalPrice %> BHD</h2>
+
+    <form action="/checkout" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required><br>
+
+      <label for="email">Contact Email:</label>
+      <input type="email" name="email" id="email" required><br>
+
+      <label for="address">Address:</label>
+      <input type="text" name="address" id="address" required><br>
+
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" id="phone" required><br>
+
+      <button type="submit">Place Order</button>
+    </form>
+  <% } else { %>
+    <p>Your cart is empty.</p>
+    <a href="/product">Go back to shop</a>
+  <% } %>
+
+</body>
+</html>

@@ -4,25 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Dar Aref shop</title>
+    <title>Dar Aref Shop</title>
   </head>
   <body>
-    <div class="index-header-div">
-      <h1>All product</h1> 
-    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+      <%- include('../partials/_navbar.ejs') %>
+    </nav>
+
+    <h1>All Products</h1>
 
     <ul>
       <% products.forEach((product) => { %>
         <li>
           <a class="product" href="/product/<%= product._id %>">
             <%= product.name %> - <%= product.description %>
+            <h3 ><%= product.price %> BHD</h3>
             <% if (product.image) { %>
               <br>
               <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-pic1">
             <% } %>
           </a>
+
+          <form class="add-to-cart-form" action="/cart/<%= product._id %>" method="POST">
+            <button class="add-to-cart" type="submit">Add to Cart</button>
+          </form>
         </li>
       <% }) %>
     </ul>
+
   </body>
 </html>

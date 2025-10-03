@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>All Orders</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h1>All Orders</h1>
+
+  <% if (orders.length > 0) { %>
+    <% orders.forEach(order => { %>
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <h3>Order ID: <%= order._id %></h3>
+        <p>Name: <%= order.name %></p>
+        <p>Email: <%= order.email %></p>
+        <p>Phone: <%= order.phone %></p>
+        <p>Address: <%= order.address %></p>
+        <p>Total: <%= order.totalPrice %> BHD</p>
+        <h4>Items:</h4>
+        <ul>
+          <% order.items.forEach(item => { %>
+            <li><%= item.product.name %> x <%= item.quantity %> = <%= item.price * item.quantity %> BHD</li>
+          <% }) %>
+        </ul>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No orders yet.</p>
+  <% } %>
+</body>
+</html>

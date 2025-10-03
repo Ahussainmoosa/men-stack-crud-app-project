@@ -1,0 +1,22 @@
+/* first page index.ejs welcome page */
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  background-color: #fdfcf9;
+  color: #b91c1c;
+  padding: 20px;
+}
+
+.welcome-page h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.welcome-page p {
+  font-size: 1.2rem;
+  color: #555;
+}

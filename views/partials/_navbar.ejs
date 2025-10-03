@@ -7,24 +7,58 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
+        <nav class="navbar">
+        <a href="/">الرئيسية</a>
+        <a href="/product">المتجر</a>
+        <a href="/cart">السلة</a>
+        <!-- langue change boutton-->
+        <button id="lang-toggle">English</button>
+        </nav>
+
         <% if(user && user.role=='admin') { %>
-        <a href="/users/<%=user._id%>/product">View my menu</a>
+        <a href="/">Home</a>
+        <a class="add-product" href="/product/new">creat a new product</a>
+        <a class="vistShop" href="/product">Vist the shop</a>
+        <a class="order-list" href="/admin/orders">view oredrs</a>
         <a href="/auth/sign-out">Sign Out</a>
-        <a class="add-foods" href="/product/new">creat a new resiapy</a>
-        <a class="vistShop"href="/product/index.ejs">Vist the shop</a>
-        <a class="username" id="username"> Hello <%= user.username %></a>
 
         <% } else if (user && user.role=='user') { %>
         <a href="/auth/sign-out">Sign Out</a>
         <a class="vistShop" href="/product">Vist the shop</a>
-        <a class="username" id="username"> Hello <%= user.username %></a>
+        <a href="/">Home</a>
+        <a href="/cart">Cart</a>
 
         <% } else { %>
+        <a href="/product">Visit the shop</a>
         <a href="/auth/sign-in">Sign In</a>
         <a href="/auth/sign-up">Sign Up</a>
+        <a href="/cart">Cart</a>
         <% } %>
     </nav>
-    
+    <br>
+    <% if(user) { %>
+      <a class="username" id="username"> Hello <%= user.username %></a>
+    <% } %>
+
+    <!-- langue change sctipt-->
+    <script>
+        const toggleBtn = document.getElementById('lang-toggle');
+        toggleBtn.addEventListener('click', () => {
+            const currentLang = document.documentElement.lang;
+            if(currentLang === 'ar') {
+            document.documentElement.lang = 'en';
+            toggleBtn.textContent = 'عربي';
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.textContent = el.dataset.en;
+            });
+            } else {
+            document.documentElement.lang = 'ar';
+            toggleBtn.textContent = 'English';
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.textContent = el.dataset.ar;
+            });
+            }
+        });
+    </script>    
 </body>
 </html>

@@ -4,11 +4,11 @@ const User = require('../models/user');
 const router = express.Router();
 
 router.get('/sign-up', (req, res) => {
-  res.render('auth/sign-up.ejs');
+  res.render('auth/sign-up');
 });
 
 router.get('/sign-in', (req, res) => {
-  res.render('auth/sign-in.ejs');
+  res.render('auth/sign-in');
 });
 
 router.post('/sign-up', async (req, res) => {
@@ -29,7 +29,7 @@ router.post('/sign-up', async (req, res) => {
     username: req.body.username,
     password:hashedPassword,
     email: req.body.email,
-    role:'user',//adding the defult value of the role.
+    role:'user',
 
   });
   
@@ -61,7 +61,7 @@ router.post('/sign-in', async (req, res) => {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
-    role:userInDatabase.role, //to stor the role value in the database.
+    role:userInDatabase.role,
   };
 
   req.session.save(() => {

@@ -7,8 +7,8 @@
     <title>Edit </title>
 </head>
 <body>
-  <h1>Edit recipe  <%= products.name %></h1>
-  <form action="/users/<%= userId %>/products/<%=products._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <h1>Edit product  <%= products.name %></h1>
+  <form action="/product/<%=products._id%>/?_method=PUT" method="POST" enctype="multipart/form-data">
         <label for="name">Name of Dish :</label>
         <input type="text" name="name" id="name" value="<%= products.name %>"/>
         <label for="description">Description of Dish :</label>
@@ -18,9 +18,9 @@
         <button type="submit">Update Dish</button>
   </form>
   <h3>Image:</h3>
-  <% if (products.image) { %>
-    <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
-  <% } %>
-  <a href="/users/<%= userId %>/products">Back to Dishes list</a>
+    <% if (products.image) { %>
+      <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
+    <% } %>
+  <a href="/product">Back to products list</a>
 </body>
 </html>

@@ -7,31 +7,31 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    
-    <div class="products-details">
-
-      <% if(user.role=='admin'){ %>
-          <div class="products-actions">
-        <form
-          class="delete-form"
-          action="/products/<%= products._id %>?_method=DELETE"
-          method="POST" >
-          <button class="delete-button" type="submit"> Delete <%= products.name %>
-          </button>
-        </form>
-        <a class="edit-link" href="/products/<%= products._id %>/edit">
-          <div class="edit-text">Edit <%= products.name %></div>
-        </a>
-      <% }else{  %>
-          <h1><%= products.name %></h1>
-          <h1><%= products.name %></h1>
-          <p>Description: <%= products.description %></p>
-          <a id="price" name="price" class="price"><%= products.price %></a>
-          <% if (products.image) { %>
-            <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="products-pic1">
-          <% } %>
+    <div class="product-details">
+      <h1><%= products.name %></h1>
+      <p>Description: <%= products.description %></p>
+      <a id="price" name="price" class="price"><%= products.price %> BHD</a>
+      <% if (products.image) { %>
+        <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
       <% } %>
-      </div>
+
+      <% if(user && user.role=='admin'){ %>
+        <div class="product-actions">
+          <form
+            class="delete-form"
+            action="/product/<%= products._id %>?_method=DELETE" method="POST" >
+            <button class="delete-button" type="submit"> Delete <%= products.name %>
+            </button>
+          </form>
+          <a class="edit-link" href="/product/<%= products._id %>/edit">
+            <div class="edit-text">Edit <%= products.name %></div>
+          </a>
+        </div>
+      <% } %>
+        <form action="/cart/<%= products._id %>" method="POST">
+          <button>Add to cart</button>
+        </form>
+
       <a href="/product">Back to shop</a>  
     </div> 
   </body>
