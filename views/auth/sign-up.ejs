@@ -11,7 +11,7 @@
       <%- include('../partials/_navbar.ejs') %>
     </nav>
     <div class="sign-up">
-      <h1 data-ar="إنشاء حساب جديد" data-en="Create a new account!" ></h1>
+      <h1 data-ar="إنشاء حساب جديد" data-en="Create a new account!" >Create a new account!</h1>
       <form action="/auth/sign-up" method="POST">
         <div class="input-feild">
           <label for="username" data-ar=" :الاسم" data-en="Username:">Username:</label>
@@ -19,21 +19,21 @@
         </div>
 
         <div class="input-feild">
-          <label for ="email" data-ar="الايميل: " data-en="email:"></label>
+          <label for ="email" data-ar="الايميل: " data-en="email:">email:</label>
           <input type="email" name="email" id="email">
         </div>
 
         <div class="input-feild">
-        <label for="password" data-ar=":الرمز السري" data-en="Password:"></label>
+        <label for="password" data-ar=":الرمز السري" data-en="Password:">Password:</label>
         <input type="password" name="password" id="password" />
         </div>
 
         <div class="input-feild">
-          <label for="confirm-Password" data-ar="تأكيد الرمز السري" data-en="Confirm Password:"></label>
+          <label for="confirm-Password" data-ar="تأكيد الرمز السري" data-en="Confirm Password:">Confirm Password:</label>
           <input type="password" name="confirmPassword" id="confirmPassword" />
         </div>
 
-        <button type="submit" data-ar="إنشاء حساب جديد" data-en="Sign up"></button>
+        <button type="submit" data-ar="إنشاء حساب جديد" data-en="Sign up">Sign up</button>
       </form>
     </div>
   </body>

@@ -7,33 +7,28 @@
 </head>
 <body>
     <nav class="nav1">
+        <a href="/" data-ar="الرئيسية" data-en="Home">Home</a>
+        <a href="/product" data-ar="المتجر" data-en="Vist Shop">Vist Shop</a>
+        <a href="/cart" data-ar="السلة" data-en="Cart">Cart</a>
+        
         <% if(user && user.role=='admin') { %>
-        <a href="/">Home</a>
-        <a class="add-product" href="/product/new">creat a new product</a>
-        <a class="vistShop" href="/product">Vist the shop</a>
-        <a class="order-list" href="/admin/orders">view oredrs</a>
-        <a href="/auth/sign-out">Sign Out</a>
+        <a class="add-product" href="/product/new" data-ar="اضف منتج جديد" data-en="creat a new product">creat a new product</a>
+        <a class="order-list" href="/admin/orders" data-ar="قائمة الطلبات" data-en="view oredrs">view oredrs</a>
+        <a href="/auth/sign-out" data-ar="تسجيل الخروج" data-en="Sign Out">Sign Out</a>
 
         <% } else if (user && user.role=='user') { %>
-        <a href="/auth/sign-out">Sign Out</a>
-        <a class="vistShop" href="/product">Vist the shop</a>
-        <a href="/">Home</a>
-        <a href="/cart">Cart</a>
-
-        <% } else { %>
-        
-        <a href="/" data-ar="الرئيسية" data-en="Home"></a>
-        <a href="/product" data-ar="المتجر" data-en="Vist Shop"></a>
-        <a href="/cart" data-ar="السلة" data-en="Cart"></a>
-        <a href="/auth/sign-in" data-ar="لتسجيل دخول" data-en="sign-in"></a>
-        <a href="/auth/sign-up" data-ar="تسجيل حساب" data-en="Sign-up"></a>
-        <!-- langue change boutton-->
-        <button id="lang-toggle">English</button>
+        <a href="/auth/sign-out" data-ar="تسجيل الخروج" data-en="Sign Out">Sign Out</a>
+        <% }else{ %>
+            <a href="/auth/sign-up" data-ar="تسجيل حساب" data-en="Sign-up">Sign-up</a>
+            <a href="/auth/sign-in" data-ar="لتسجيل دخول" data-en="sign-in">sign-in</a>
         <% } %>
-    <br>
+        
+        
     <% if(user) { %>
       <a class="username" id="username"> Hello <%= user.username %></a>
     <% } %>
+        <!-- langue change boutton-->
+        <button id="lang-toggle">English</button>
 
     <!-- langue change sctipt-->
     <script>

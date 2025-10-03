@@ -7,13 +7,29 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+    <nav>
+      <%- include('../partials/_navbar.ejs') %>
+    </nav>
+
     <div class="product-details">
-      <h1><%= products.name %></h1>
-      <p>Description: <%= products.description %></p>
-      <a id="price" name="price" class="price"><%= products.price %> BHD</a>
-      <% if (products.image) { %>
-        <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
-      <% } %>
+      <div class="product-main">
+        <% if (products.image) { %>
+          <img src="/uploads/<%= products.image %>" alt="<%= products.name %>" class="product-pic1">
+        <% } %>
+
+        <div class="product-info">
+          <h1><%= products.name %></h1>
+          <p>Description: <%= products.description %></p>
+
+          <div class="price-cart-container">
+            <span id="price" class="price"><%= products.price %> BHD</span>
+            <form action="/cart/<%= products._id %>" method="POST">
+              <button class="add-to-cart">Add to cart</button>
+            </form>
+          </div>
+        </div>
+        
+      </div>
 
       <% if(user && user.role=='admin'){ %>
         <div class="product-actions">
@@ -28,9 +44,6 @@
           </a>
         </div>
       <% } %>
-        <form action="/cart/<%= products._id %>" method="POST">
-          <button>Add to cart</button>
-        </form>
 
       <a href="/product">Back to shop</a>  
     </div> 

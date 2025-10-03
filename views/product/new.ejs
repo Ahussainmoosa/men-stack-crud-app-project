@@ -7,34 +7,36 @@
     <title>Add New product</title>
 </head>
 <body>
-  <h1>Add a New product</h1>
-  <% if (user) { %>
-    <a>Hello <%= user.username %></a>
-    <form action="/product" method="POST" enctype="multipart/form-data">
-          <label for="name">Name:</label>
-          <input type="text" name="name" id="name" required>
+  <div class="new-product">
+    <h1>Add a New product</h1>
+    <% if (user) { %>
+      <a>Hello <%= user.username %></a>
+      <form action="/product" method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
 
-          <label for="category">category type:</label>
-          <select name="category-option" id="category-option">
-            <option value="head-ware">head ware</option>
-            <option value="foot-ware">foot ware</option>
-            <option value="body-ware">body ware</option>
-          </select>
+        <label for="category">Category type:</label>
+        <select name="category-option" id="category-option">
+          <option value="head-ware">head ware</option>
+          <option value="foot-ware">foot ware</option>
+          <option value="body-ware">body ware</option>
+        </select>
 
-          <label for="description">Description:</label>
-          <input type="text" name="description" id="description" required>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" required>
 
-          <label for="image">product Image:</label>
-          <input type="file" name="image" id="image">
+        <label for="image">Product Image:</label>
+        <input type="file" name="image" id="image">
 
-          <label for="price">price: </label>
-          <input type="number" name="price" id="price" class="price" required>
-          
-          <button type="submit">Add product</button>
-    </form>
-  <% } else { %>
-    <p>Please sign in to add a product.</p>
-  <% } %>
-  <a href="/product">Back to product</a>
+        <label for="price">Price: </label>
+        <input type="number" name="price" id="price" class="price" required>
+        
+        <button type="submit">Add product</button>
+      </form>
+    <% } else { %>
+      <p>Please sign in to add a product.</p>
+    <% } %>
+    <a href="/product">Back to product</a>
+  </div>
 </body>
 </html>

@@ -30,8 +30,9 @@ mongoose.connection.on('connected', () => {
 });
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views'); 
+
 // MIDDLEWARE
-//styels
+//styles
 app.use(express.static(path.join(__dirname, 'public')));
 // Middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
@@ -50,11 +51,21 @@ app.use(
   })
 );
 app.use(passUserToView);
+
 // PUBLIC
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { lang: req.session.lang || 'en' });
 });
 
+// Language toggle route
+app.post('/toggle-lang', (req, res) => {
+  if (!req.session.lang || req.session.lang === 'en') {
+    req.session.lang = 'ar';
+  } else {
+    req.session.lang = 'en';
+  }
+  res.json({ lang: req.session.lang });
+});
 
 // PRIVATE
 app.use('/auth', authController);
@@ -64,8 +75,6 @@ app.use('/uploads', express.static('uploads'));
 app.use(isSignedIn);
 app.use('/checkout', checkoutController);
 app.use('/admin',adminRoutes);
-
-
 
 // PROTECTED
 app.listen(port, () => {

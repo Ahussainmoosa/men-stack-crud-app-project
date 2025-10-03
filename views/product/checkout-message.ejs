@@ -8,8 +8,10 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-  <h1>Thank you for your order!</h1>
-  <p>Your order has been received and is being processed.</p>
-  <a href="/product">Continue Shopping</a>
+  <div class="checkout-message-container">
+    <h1 class="checkout-message-title">Thank you for your order!</h1>
+    <p class="checkout-message-text">Your order has been received and is being processed.</p>
+    <a href="/product" class="checkout-message-btn">Continue Shopping</a>
+  </div>
 </body>
 </html>
