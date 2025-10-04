@@ -21,13 +21,13 @@ or sign out, depending on my status.
 
 •	AAU, I want a clear and smooth checkout process, so that I can confirm my order and complete the purchase.
 
-The photo below is the wireframe for the project.
-
-<img width="1431" height="1312" alt="Dar Aref e-shop workflow" src="https://github.com/user-attachments/assets/e6669430-997c-4787-acb0-b241aca83e5d" />
-](url)
 The photo below is the project website screen Screenshot.
 
 <img width="1280" height="617" alt="Screenshot 2025-10-04 012622" src="https://github.com/user-attachments/assets/fb128547-d0ed-4e74-86b3-227f6b994bdc" />
+
+The photo below is the wireframe for the project.
+
+<img width="1431" height="1312" alt="Dar Aref e-shop workflow" src="https://github.com/user-attachments/assets/e6669430-997c-4787-acb0-b241aca83e5d" />
 
 
 The photo below is the ERD Datagram for the project.
