@@ -24,6 +24,10 @@ or sign out, depending on my status.
 The photo below is the wireframe for the project.
 
 <img width="1431" height="1312" alt="Dar Aref e-shop workflow" src="https://github.com/user-attachments/assets/e6669430-997c-4787-acb0-b241aca83e5d" />
+](url)
+The photo below is the project website screen Screenshot.
+
+<img width="1280" height="617" alt="Screenshot 2025-10-04 012622" src="https://github.com/user-attachments/assets/fb128547-d0ed-4e74-86b3-227f6b994bdc" />
 
 
 The photo below is the ERD Datagram for the project.
@@ -34,3 +38,4 @@ The photo below is the ERD Datagram for the project.
 The photo below is the RESTful routes table for the project.
 
 <img width="491" height="448" alt="RESTful routes photo Dar Aref" src="https://github.com/user-attachments/assets/462444f6-ac91-4bf6-b1ac-7c6468652ba7" />
+
